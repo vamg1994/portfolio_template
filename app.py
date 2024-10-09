@@ -45,4 +45,4 @@ def project2():
     return "This is Project 2"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
