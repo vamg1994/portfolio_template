@@ -1,0 +1,250 @@
+/* Imports Roboto font from Google Fonts with different weights */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* Basic styles for body and html */
+body, html {
+    margin: 0; /* Removes default margins */
+    padding: 0; /* Removes default padding */
+    font-family: 'Roboto', sans-serif; /* Sets the main font */
+    color: #ffffff; /* Sets text color to white */
+    background-color: #04173ac2; /* Fondo muy oscuro con un toque de azul */
+    overflow-x: hidden; /* Hides horizontal scrollbar */
+    height: 100%;
+}
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Styles for the canvas element (possibly for background animations) */
+canvas {
+    position: fixed; /* Fixes the canvas to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Places the canvas behind other elements */
+}
+
+/* Styles for the main content container */
+.content {
+    position: relative;
+    z-index: 1; /* Ensures content is above the canvas */
+    max-width: 1200px; /* Limits the maximum width of the content */
+    margin: 0 auto; /* Centers the content horizontally */
+    padding: 20px; /* Adds space around the content */
+    animation: fadeIn 1s ease-out;
+    color: #ffffff; /* Asegúrate de que el texto sea visible sobre el fondo oscuro */
+}
+
+/* Styles for the header */
+header {
+    text-align: center; /* Centers the header content */
+    margin-bottom: 50px; /* Adds space below the header */
+}
+
+/* Styles for the profile image */
+.profile-image {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px; /* Centers the image and adds space below */
+    border-radius: 50%; /* Makes the image circular */
+    overflow: hidden; /* Hides parts of the image outside the circle */
+    border: 3px solid #ffffff; /* Adds a white border */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* Adds a soft glow */
+    animation: popIn 0.5s ease-out 0.5s both;
+}
+
+/* Styles for the image inside the profile container */
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire space */
+}
+
+/* Styles for the main title */
+h1 {
+    font-size: 3em; /* Sets the font size */
+    margin-bottom: 20px; /* Adds space below the title */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Adds a glow to the text */
+    animation: slideInFromTop 0.5s ease-out 0.7s both;
+}
+
+/* Styles for the contact buttons container */
+.contact-buttons {
+    display: flex;
+    justify-content: center; /* Centers the buttons horizontally */
+    flex-wrap: wrap; /* Allows buttons to wrap on small screens */
+    gap: 15px; /* Adds space between buttons */
+}
+
+/* Styles for the buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease; /* Adds a smooth transition for hover effects */
+    backdrop-filter: blur(5px); /* Adds a blur effect to the background */
+    animation: fadeInUp 0.5s ease-out 1s both;
+}
+
+/* Styles for buttons on hover */
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Increases background opacity */
+    transform: translateY(-3px); /* Moves the button slightly upwards */
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2); /* Adds a soft shadow */
+}
+
+/* Styles for the projects section */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Creates a responsive grid */
+    gap: 30px; /* Adds space between projects */
+}
+
+/* Styles for individual projects */
+.project {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px); /* Adds a blur effect to the background */
+    animation: fadeInUp 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+/* Styles for projects on hover */
+.project:hover {
+    transform: translateY(-5px); /* Moves the project slightly upwards */
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1); /* Adds a soft shadow */
+}
+
+/* Styles for project images */
+.project img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Styles for project titles */
+.project h2 {
+    margin-bottom: 15px;
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 768px) {
+    .projects {
+        grid-template-columns: 1fr; /* Changes to a single column on small screens */
+    }
+}
+
+/* Aplicar retraso a cada proyecto sucesivamente */
+.project:nth-child(1) { animation-delay: 1.2s; }
+.project:nth-child(2) { animation-delay: 1.4s; }
+.project:nth-child(3) { animation-delay: 1.6s; }
+/* ... añade más si tienes más proyectos ... */
+
+/* Definiciones de las animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    80% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideInFromTop {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes logoEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px) rotate(-10deg);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(10px) rotate(5deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+.logo {
+    position:absolute;
+    top: 40px;
+    left: 70px;
+    z-index: 1000;
+    width: 300px;
+    height: auto;
+    animation: popIn 0.5s ease-out 0.5s both;
+}
+
+.typing-animation {
+    position: absolute;
+    top: 80px;
+    right: 170px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.typing-animation span {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #ffffff;
+    animation: 
+        typing 2s steps(30, end),
+        blink-caret 0.75s step-end 3,
+        hideBorder 0s 2s forwards;
+    opacity: 0;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #ffffff }
+}
+
+@keyframes hideBorder {
+    to {
+        border-right: 2px solid transparent;
+    }
+}
+
+.typing-animation span:nth-child(1) { animation-delay: 0s; }
+.typing-animation span:nth-child(2) { animation-delay: 1.5s; }
+.typing-animation span:nth-child(3) { animation-delay: 3s; }
+.typing-animation span:nth-child(4) { animation-delay: 4.5s; }
+
+.typing-animation span.visible {
+    opacity: 1;
+}
+

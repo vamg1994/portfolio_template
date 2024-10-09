@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio Profesional</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <script src="{{ url_for('static', filename='background.js') }}"></script>
+    <canvas id="background"></canvas>
+    
+    <div class="content">
+        <header>
+            <div class="profile-image">
+                 
+                <img src="{{ url_for('static', filename='profile.png') }}" alt="Foto de perfil">
+            </div>
+            <img src="static/logo.png" alt="Logo" class="logo"> 
+
+            <div class="typing-animation">
+                <span>Data Analysis</span>
+                <span>SQL</span>
+                <span>Python</span>
+                <span>Machine Learning</span>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const words = document.querySelectorAll('.typing-animation span');
+                        words.forEach((word, index) => {
+                            setTimeout(() => {
+                                word.classList.add('visible');
+                            }, index * 2000);
+                        });
+                    });
+                </script>
+        
+            </div>
+
+
+            <h1>Mi Portafolio</h1>
+            <nav class="contact-buttons">
+                {% for contact in contacts %}
+                    <a href="{{ contact.url }}" target="_blank" class="btn">{{ contact.name }}</a>
+                {% endfor %}
+            </nav>
+            
+        </header>
+        
+
+
+        <main class="projects">
+            {% for project in projects %}
+                <div class="project">
+                    <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.name }}">
+                    <h2>{{ project.name }}</h2>
+                    <a href="{{ project.url }}" class="btn">Ver Proyecto</a>
+                </div>
+            {% endfor %}
+        </main>
+    </div>
+    
+</body>
+</html>
