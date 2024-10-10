@@ -137,10 +137,10 @@ h1 {
 /* Logo */
 .logo {
     position: absolute;
-    top: 40px;
-    left: 70px;
+    top: 20px;
+    left: 20px;
     z-index: 1000;
-    width: 100px;
+    width: 80px;
     height: auto;
     animation: popIn 0.5s ease-out 0.5s both;
 }
@@ -217,36 +217,42 @@ h1 {
     }
 
     .content {
-        padding: 10px;
+        padding: 60px 10px 10px; /* Aumentado el padding superior */
     }
 
-    h1 {
-        font-size: 2.5em;
-    }
-
-    .typing-animation {
-        font-size: 20px;
+    header {
+        margin-top: 40px; /* Añadido margen superior al header */
     }
 
     .logo {
-        top: 20px;
-        left: 20px;
-        width: 80px;
+        position: fixed; /* Cambiado a fixed para que no afecte el flujo del contenido */
+        top: 10px;
+        left: 10px;
+        width: 60px;
     }
 
     .profile-image {
         width: 120px;
         height: 120px;
     }
-}
 
-@media (max-width: 480px) {
     h1 {
-        font-size: 2em;
+        font-size: 2.2em;
     }
 
     .typing-animation {
         font-size: 18px;
+        margin-top: 20px; /* Añadido margen superior */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .typing-animation {
+        font-size: 16px;
     }
 
     .btn {
