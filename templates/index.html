@@ -3,56 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Virgilio</title>
+    <title>VAM Portfolio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <script src="{{ url_for('static', filename='background.js') }}"></script>
+    <!-- Canvas for background animation -->
     <canvas id="background"></canvas>
     
     <div class="content">
         <header>
+            <!-- Profile image -->
             <div class="profile-image">
-                 
                 <img src="{{ url_for('static', filename='profile.png') }}" alt="Foto de perfil">
-           
-                
             </div>
-
-            <!--
-            <img src="static/logo.png" alt="Logo" class="logo"> 
-
-            <div class="typing-animation">
-                <span>Data Analysis</span>
-                <span>SQL</span>
-                <span>Python</span>
-                <span>Machine Learning</span>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        const words = document.querySelectorAll('.typing-animation span');
-                        words.forEach((word, index) => {
-                            setTimeout(() => {
-                                word.classList.add('visible');
-                            }, index * 2000);
-                        });
-                    });
-                </script>
-        
-            </div>
-            -->
-
-
+            
+            <!-- Logo -->
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+            
             <h1>Virgilio Madrid</h1>
+            
+            <!-- Typing animation for skills -->
+            <div class="typing-animation">
+                <span>Data Analysis | SQL | Python | Machine Learning</span>
+            </div>
+            
+            <!-- Contact buttons -->
             <nav class="contact-buttons">
                 {% for contact in contacts %}
                     <a href="{{ contact.url }}" target="_blank" class="btn">{{ contact.name }}</a>
                 {% endfor %}
             </nav>
-            
         </header>
         
-
-
+        <!-- Project showcase -->
         <main class="projects">
             {% for project in projects %}
                 <div class="project">
@@ -64,5 +47,18 @@
         </main>
     </div>
     
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='background.js') }}"></script>
+    <script>
+        // Typing animation for skills
+        document.addEventListener('DOMContentLoaded', function() {
+            const words = document.querySelectorAll('.typing-animation span');
+            words.forEach((word, index) => {
+                setTimeout(() => {
+                    word.classList.add('visible');
+                }, index * 2000);
+            });
+        });
+    </script>
 </body>
 </html>
