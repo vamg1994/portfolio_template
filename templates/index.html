@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio Profesional</title>
+    <title>Portafolio Virgilio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
@@ -15,6 +15,8 @@
             <div class="profile-image">
                  
                 <img src="{{ url_for('static', filename='profile.png') }}" alt="Foto de perfil">
+           
+                <!--
             </div>
             <img src="static/logo.png" alt="Logo" class="logo"> 
 
@@ -35,9 +37,10 @@
                 </script>
         
             </div>
+            -->
 
 
-            <h1>Mi Portafolio</h1>
+            <h1>Virgilio Madrid</h1>
             <nav class="contact-buttons">
                 {% for contact in contacts %}
                     <a href="{{ contact.url }}" target="_blank" class="btn">{{ contact.name }}</a>
