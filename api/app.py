@@ -7,7 +7,7 @@ def portfolio():
     # Define project information
     projects = [
         {
-            'name': 'Project 1',
+            'name': 'Movie Reccomendation System',
             'image': 'p1.gif',
             'url': '/project1'
         },
